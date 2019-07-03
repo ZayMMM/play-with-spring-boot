@@ -4,15 +4,18 @@ import com.next.springframework.spring5recipeapp.model.*;
 import com.next.springframework.spring5recipeapp.repository.CategoryRepository;
 import com.next.springframework.spring5recipeapp.repository.RecipeRepository;
 import com.next.springframework.spring5recipeapp.repository.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -28,12 +31,13 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
         recipeRepository.saveAll( this.getRecipes() );
     }
 
     private List<Recipe> getRecipes(){
-
+        log.debug( "Loading bootstrap data" );
         List<Recipe> recipes = new ArrayList<>( 2 );
 
         // get Unit Of Measure
@@ -191,7 +195,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacosRecipe.getCategories().add(mexicanCategory);
 
         recipes.add(tacosRecipe);
-
+        log.debug( "End the bootstrap" );
         return recipes;
     }
 }

@@ -1,7 +1,10 @@
 package com.next.springframework.spring5recipeapp.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "unit_of_measure")
 public class UnitOfMeasure {
@@ -12,19 +15,4 @@ public class UnitOfMeasure {
 
     private String description;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
