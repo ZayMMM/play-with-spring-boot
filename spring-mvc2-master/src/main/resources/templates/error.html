@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/master.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Whitelabel Error Page</title>
+</head>
+<body>
+
+<div layout:fragment="context">
+    <div class="container-fluid">
+        <h1>Our apologies.</h1>
+        <p class="lead">This page stepped out for a quick ride.</p>
+        <p>Please go back to our homepage to restart your browsing experience.</p>
+        <!--/*@thymesVar id="msg" type=""*/-->
+        <p th:text="${msg}"></p>
+        <!--/*@thymesVar id="status" type=""*/-->
+        <p th:text="${status}"></p>
+        <a href="#" th:href="@{/products}">GO Home</a>
+    </div>
+</div>
+
+</body>
+</html>
