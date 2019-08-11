@@ -18,14 +18,15 @@ public class SpringMvc3Application {
 
   private static Logger
           logger= LoggerFactory.getLogger(SpringMvc3Application.class);
-
+/*
   @Autowired
-  private ApplicationContext applicationContext;
+  private ApplicationContext applicationContext;*/
 
   public static void main(String[] args) {
     SpringApplication.run(SpringMvc3Application.class, args);
   }
 
+/*
   @Bean @Profile("dev")
   public CommandLineRunner run(){
     return args -> {
@@ -41,5 +42,6 @@ public class SpringMvc3Application {
               .forEach(System.out::println);
     };
   }
+*/
 
 }

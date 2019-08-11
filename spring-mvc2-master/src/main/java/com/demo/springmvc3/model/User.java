@@ -40,4 +40,8 @@ public class User {
         this.mail = mail;
         this.password = password;
     }
+
+    public void addRole(Role role){
+        this.roleList.add( role );
+    }
 }
