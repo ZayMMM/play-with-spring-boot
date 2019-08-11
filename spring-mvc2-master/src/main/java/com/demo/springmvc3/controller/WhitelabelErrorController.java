@@ -1,7 +1,6 @@
 package com.demo.springmvc3.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,6 +21,9 @@ public class WhitelabelErrorController implements ErrorController {
 
             if(status == 404 ){
                 model.addAttribute( "msg", "Not Found!");
+                model.addAttribute( "status", status );
+            }else if(status == 403){
+                model.addAttribute( "msg", "you are Forbidden" );
                 model.addAttribute( "status", status );
             }
         }

@@ -28,14 +28,22 @@ public class DatabaseLoader implements CommandLineRunner {
         Role adminRole = new Role( "ROLE_ADMIN" );
         Role userRole = new Role( "ROLE_USER" );
 
-        User adminUser = new User( "adminemail@gmail.com","zay","myint", passwordEncoder.encode( "zay" ) );
-        User user = new User( "usermail@gmail.com", "thaw", "thaw", passwordEncoder.encode( "thaw" ) );
+        User adminUser = new User( "zay","myint","adminemail@gmail.com", passwordEncoder.encode( "zay" ) );
+        User normalUser = new User( "thaw", "thaw", "usermail@gmail.com", passwordEncoder.encode( "thaw" ) );
 
-        /*roleRepository.save( adminRole );
+        // mapping
+        adminRole.getUserList().add( adminUser );
+        adminUser.addRole( adminRole );
+
+        userRole.getUserList().add( normalUser );
+        normalUser.addRole( userRole );
+
+
+       /* roleRepository.save( adminRole );
         roleRepository.save( userRole );
 
         userRepository.save( adminUser );
-        userRepository.save( user );*/
+        userRepository.save( normalUser );*/
 
     }
 }
