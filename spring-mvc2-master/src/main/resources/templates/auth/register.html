@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/master.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Register Page</title>
+</head>
+<body>
+
+<div layout:fragment="context">
+    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+       <!-- <div th:if="${#fields.errors()}" class="alert alert-danger">
+            Wrong Password !
+        </div>-->
+        <div class="form-group">
+            <label for="fname">Name</label>
+            <input id="fname" th:field="*{firstName}" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input id="lname" th:field="*{lastName}" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" th:field="*{mail}" type="text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" th:field="*{password}" type="password" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="confirmpassword">Confirm Password</label>
+            <input id="confirmpassword" th:field="*{confirmPassword}" type="password" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-danger">Submit</button>
+       <!-- <a href="#" type="submit" class="btn btn-primary">Submit</a>-->
+
+    </form>
+</div>
+
+</body>
+</html>

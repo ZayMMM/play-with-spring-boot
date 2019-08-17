@@ -1,5 +1,6 @@
 package com.demo.springmvc3.model;
 
+import com.demo.springmvc3.validation.PasswordNotSame;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
